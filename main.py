@@ -232,7 +232,7 @@ def cart():
 
 
 if __name__ == "__main__":
-    # from waitress import serve
-    # serve(app, port=8080, host="127.0.0.1")
+    from waitress import serve
+    serve(app, port=8080, host="127.0.0.1")
 
-    app.run(port=8080, host="127.0.0.1")
+    # app.run(port=8080, host="127.0.0.1")
