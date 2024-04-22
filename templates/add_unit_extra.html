@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+
+        {% if error == 1 %}
+            <h4 style="color:red"> Данный товар уже существует</h4>
+        {% endif %}
+
+
+        <p>
+            {{ form.name.label }}<br>
+            {{ form.name }}<br>
+            {% for error in form.name.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        <p>
+
+        <p>
+            {{ form.content.label }}<br>
+            {{ form.content }}<br>
+            {% for error in form.content.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+            {{ form.cost.label }} <br>
+            {{ form.cost }} <br>
+            {% for error in form.cost.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        <p>{{ form.submit() }} </p>
+
+    </form>
+
+{% endblock %}

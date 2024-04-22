@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <div>
+  <table border="1" width="100%" cellpadding="5">
+
+      <th>ID</th>
+      <th>Имя пользователя</th>
+      <th>Хеш пароля</th>
+      <th>Статус</th>
+
+    {% for id, username, password in users%}
+      <tr>
+          <th>{{id}}</th>
+          <th>{{username}}</th>
+          <th>{{password}}</th>
+          {% if username in admins %}
+            <th style="color:red">Администратор</th>
+          {% else %}
+            <th>Пользователь</th>
+          {% endif %}
+    </tr>
+
+    {% endfor %}
+       </table>
+    </div>
+      {% endblock %}
